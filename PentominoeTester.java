@@ -5,11 +5,19 @@ public class PentominoeTester{
 
     char[] charachterSet = {p,x,f,v,w,y,j,t,z,u,n,l};
 
-    Pentominoe[] PentominoeSet = PentominoeSetCreater(a);
-    for(int i=0; i<PentominoeSet.length;i++){
+    Pentominoe[] PentominoeSet = PentominoeSetCreater(charachterSet);
+    /*for(int i=0; i<PentominoeSet.length;i++){
       PentominoeSet[i].print();
     }
+    Grid g = new Grid();
+    g.addPentominoe(PentominoeSet[5],g.getFirstEmpty());
+    g.print();
+    char h = 1;
+    System.out.println(h);*/
+    PentominoeSet[0].rotateR();
+    PentominoeSet[0].print();
   }
+
   public static Pentominoe[] PentominoeSetCreater(char[] list){
     Pentominoe[] myArray = new Pentominoe[list.length];
 

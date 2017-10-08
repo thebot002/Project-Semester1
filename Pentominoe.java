@@ -15,20 +15,6 @@ public class Pentominoe {
     return pentominoe;
   }
 
-  public void rotate(int amountRotations){
-
-  }
-  public void flip(){
-
-  }
-  /*public int[][] hasFlatSideOn(){
-
-  }*/
-
-  /*
-    i => height on an array
-    j => width on an array
-  */
   private void createPentominoe(char form){
     switch (form) {
       case 'p':
