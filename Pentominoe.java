@@ -1,6 +1,6 @@
 public class Pentominoe {
 
-  private int[][] pentominoe;
+  private char[][] pentominoe;
 
   public Pentominoe(){
 
@@ -9,7 +9,7 @@ public class Pentominoe {
     createPentominoe(form);
   }
 
-  public int[][] getPentominoe(){
+  public char[][] getPentominoe(){
     return pentominoe;
   }
 
@@ -23,113 +23,117 @@ public class Pentominoe {
 
   }*/
 
+  /*
+    i => height on an array
+    j => width on an array
+  */
   private void createPentominoe(char form){
     switch (form) {
       case 'p':
       System.out.println("tester");
-      pentominoe = new int[3][2];
+      pentominoe = new char[3][2];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if(!(i==2 && j==1)) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if(!(i==2 && j==1)) pentominoe[i][j] = 'p';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'x':
-      pentominoe = new int[3][3];
+      pentominoe = new char[3][3];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if(!((i==0 || i==2)&&(j==0 || j==2))) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if(!((i==0 || i==2)&&(j==0 || j==2))) pentominoe[i][j] = 'x';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'f':
-      pentominoe = new int[3][3];
+      pentominoe = new char[3][3];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if(j==1 || (j==0 && i==1) || (j==2 && i==0)) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if(j==1 || (j==0 && i==1) || (j==2 && i==0)) pentominoe[i][j] = 'f';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'v':
-      pentominoe = new int[3][3];
+      pentominoe = new char[3][3];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if(i==2 || j==0) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if(i==2 || j==0) pentominoe[i][j] = 'v';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'w':
-      pentominoe = new int[3][3];
+      pentominoe = new char[3][3];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if((i==0 && j==0) || (i==1 && j<2) || (i==2 && j>0)) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if((i==0 && j==0) || (i==1 && j<2) || (i==2 && j>0)) pentominoe[i][j] = 'w';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'y':
-      pentominoe = new int[4][2];
+      pentominoe = new char[4][2];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if((i==1 && j==0) || j==1) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if((i==1 && j==0) || j==1) pentominoe[i][j] = 'y';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'i':
-      pentominoe = new int[5][1];
+      pentominoe = new char[5][1];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          pentominoe[i][j] = 1;
+          pentominoe[i][j] = 'i';
         }
       }
       break;
       case 't':
-      pentominoe = new int[3][3];
+      pentominoe = new char[3][3];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if(i==0 || j==1) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if(i==0 || j==1) pentominoe[i][j] = 't';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'z':
-      pentominoe = new int[3][3];
+      pentominoe = new char[3][3];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if(j==1 || (i==0 && j==0) || (i==2 && j==2)) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if(j==1 || (i==0 && j==0) || (i==2 && j==2)) pentominoe[i][j] = 'z';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'u':
-      pentominoe = new int[2][3];
+      pentominoe = new char[2][3];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if(!(i==0 && j==1)) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if(!(i==0 && j==1)) pentominoe[i][j] = 'u';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'n':
-      pentominoe = new int[2][4];
+      pentominoe = new char[2][4];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if((i==0 && j<2) || (i==1 && j>0)) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if((i==0 && j<2) || (i==1 && j>0)) pentominoe[i][j] = 'n';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
       case 'l':
-      pentominoe = new int[2][4];
+      pentominoe = new char[2][4];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
-          if(!(i==0 && j<3)) pentominoe[i][j] = 1;
-          else pentominoe[i][j] = 0;
+          if(!(i==0 && j<3)) pentominoe[i][j] = 'l';
+          else pentominoe[i][j] = '-';
         }
       }
       break;
@@ -143,5 +147,15 @@ public class Pentominoe {
       }
       System.out.println("");
     }
+  }
+
+  public char getValue(int i, int j){
+    return pentominoe[i][j];
+  }
+  public int getWidth(){
+    return pentominoe[0].length;
+  }
+  public int getHeight(){
+    return pentominoe.length;
   }
 }
