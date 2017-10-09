@@ -53,4 +53,16 @@ public class Grid{
       }
     }
   }
+  public void removePentominoe(Pentominoe p){
+    char x = '-';
+    int posX; //horizontal position to look at;
+    do{
+      x = p.getValue(0,posX);
+    }while(x == '-');
+    for(int i=0; i<p.getHeight(); i++){
+      for(int j=0; j<p.getWidth(); j++){
+        if(grid[i][j] == x) grid[i][j] = '-';
+      }
+    }
+  }
 }
