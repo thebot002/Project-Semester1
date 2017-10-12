@@ -38,16 +38,19 @@ public class Grid{
     position[1] = -1;
     return position;
   }
+  public int getWidth(){ return width; }
+  public int getHeight(){ return height; }
+
   public boolean isFull(){
     boolean check = true;
     int i = 0;
-    int j = 0;
     while(i<height){
+      int j=0;
       while(j<width){
         if(grid[i][j] == '-') return false;
-        i++;
         j++;
       }
+      i++;
     }
     return check;
   }
@@ -57,14 +60,14 @@ public class Grid{
     int y = pos[0]; //i
     int k = 0;
     while(p.getValue(0,k) == '-'){
-      y--;
+      x--;
       k++;
     }
-    if(y<0 || width < (y + p.getWidth()) || height < (x + p.getHeight())) return false; //check if shape goes out of bounds
+    if(x<0 || width < (x + p.getWidth()) || height < (y + p.getHeight())) return false; //check if shape goes out of bounds
     for(int i=0; i<p.getHeight();i++){
       for(int j=0; j<p.getWidth();j++){
-        if(p.getValue(i,j) != '-' && grid[i][j] == '-') check = true;
-        else return false;
+        if(p.getValue(i,j) != '-' && grid[y+i][x+j] != '-') return false;
+        else check = true;
       }
     }
     return check;
@@ -82,7 +85,7 @@ public class Grid{
     int y = pos[0]; //i
     int k = 0;
     while(p.getValue(0,k) == '-'){
-      y--;
+      x--;
       k++;
     }
     for(int i=0; i<p.getHeight(); i++){
@@ -108,5 +111,11 @@ public class Grid{
         if(blockCounter == 5) return;
       }
     }
+  }
+  public char getValue(int i, int j) {
+		return grid[i][j];
+	}
+  public void setValue(int i, int j, char val){
+    grid[i][j] = val;
   }
 }
