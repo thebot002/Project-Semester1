@@ -3,22 +3,24 @@ import java.util.*;
 public class Pentominoe {
 
   private char[][] pentominoe;
+  public char form;
 
   public Pentominoe(){
-
+    form ='p';
+    createPentominoe();
   }
   public Pentominoe(char form){
-    createPentominoe(form);
+    this.form = form;
+    createPentominoe();
   }
 
   public char[][] getPentominoe(){
     return pentominoe;
   }
 
-  private void createPentominoe(char form){
+  private void createPentominoe(){
     switch (form) {
       case 'p':
-      System.out.println("tester");
       pentominoe = new char[3][2];
       for(int i=0;i<pentominoe.length;i++){
         for(int j=0;j<pentominoe[i].length;j++){
