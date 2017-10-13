@@ -12,7 +12,7 @@ public class GridFiller{
 
     double beginT = System.nanoTime()*1.0;
     if(amountSpaces<amountBlocks) System.out.println("Grid is too small, sorry...");
-    else if(amountSpaces>amountBlocks) System.out.println("Gris is too big, there will be empty spaces...");
+    else if(amountSpaces>amountBlocks) System.out.println("Grid is too big, there will be empty spaces...");
     else{
       if(Filler(g,pSet,0)) System.out.println("Done");
       else System.out.println("Error");
@@ -30,16 +30,21 @@ public class GridFiller{
     }
     return myArray;
   }
+  private static int counter=0;
 
   public static boolean Filler(Grid g, Pentominoe[] pSet, int pentominoe){
     boolean check = false;
     if(g.isFull()){
+      System.out.println(counter+1 + ")");
       g.print();
-      return true;
+      counter++;
+      if(counter == 10) return true;
+      return false;
     }
     else {
       Pentominoe p = pSet[pentominoe];
       int i=0;
+      char form = p.form;
       do{
         int j=0;
         do {
@@ -53,6 +58,7 @@ public class GridFiller{
             }
             newG.addPentominoe(p,newG.getFirstEmpty());
             //newG.print();
+            //System.out.println();
             //System.out.println(pSet.length);
             Pentominoe[] newPSet = elRemove(pSet,pentominoe);
             //System.out.println(newPSet.length);
@@ -61,10 +67,10 @@ public class GridFiller{
           p.flipH();
           j++;
           //p.print();
-        } while (j<2 /*|| p.form!='x'||p.form!='i'*/);
+        } while (j<2 && form!='x' && form!='t' && form!= 'u' && form!='i' /*&& form!='w'*/);
         p.rotateR();
         i++;
-      } while (i<4 /*|| p.form!='x' || (p.form=='i'&&i<2)*/);
+      } while (i<4 && form!='x' && !(form=='i'&&i==1) && !(form=='z'&&i==1));
     }
     pentominoe++;
     if(pentominoe == pSet.length) return false;
